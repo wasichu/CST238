@@ -9,6 +9,8 @@ an assignment.
 Source Code Descriptions
 ========================
 
+- guessWhat.cpp: Code snippet from lecture 7; used in lab 4
+
 - template.cpp: Contains a skeleton .cpp file with the elements
                 required by the course style guide
 
