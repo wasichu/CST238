@@ -17,6 +17,10 @@ Source Code Descriptions
 
 - lab6driver: Main function for lab 6
 
+- lab10emptyTester.cpp: Lab 10 test driver for the empty() method
+
+- lab10removeBackTester.cpp: Lab 10 test driver for the removeBack() method
+
 - template.cpp: Contains a skeleton .cpp file with the elements
                 required by the course style guide
 
