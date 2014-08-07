@@ -26,3 +26,17 @@ Source Code Descriptions
 
 - template.h: Contains a skeleton .h file with the elements required
               by the course style guide
+
+- Project 2 Folder
+  
+  - MemoryManager.h - MemoryManager super class header file
+  
+  - MemoryManager.cpp - MemoryManager super class .cpp file
+
+  - BestFit.h - BestFit base class header file
+
+  - BestFit.cpp - BestFit base class .cpp file
+
+  - FirstFit.h - FirstFit base class header file
+
+  - FirstFit.cpp - FirstFit base class .cpp file
