@@ -1,3 +1,14 @@
+/*
+ *
+ *   File Name: FirstFit.h
+ *        Name: 
+ *      Course: CST 238
+ *        Term: Fall 2014
+ *  Assignment: Project 2
+ *    Abstract: FirstFit Base Class
+ *
+ */
+
 #ifndef FIRST_FIT_H
 #define FIRST_FIT_H
 

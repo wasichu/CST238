@@ -1,3 +1,14 @@
+/*
+ *   
+ *   File Name: FirstFit.cpp
+ *        Name: 
+ *      Course: CST 238
+ *        Term: Fall 2014
+ *  Assignment: Project 2
+ *    Abstract: FirstFit Base Class
+ *
+ */
+
 #include "FirstFit.h"
 
 // Allocate size number of bytes

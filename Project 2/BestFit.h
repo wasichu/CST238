@@ -1,3 +1,14 @@
+/*
+ *
+ *   File Name: BestFit.h
+ *        Name: 
+ *      Course: CST 238
+ *        Term: Fall 2014
+ *  Assignment: Project 2
+ *    Abstract: BestFit Base Class
+ *
+ */
+
 #ifndef BEST_FIT_H
 #define BEST_FIT_H
 

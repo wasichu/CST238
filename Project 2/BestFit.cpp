@@ -1,3 +1,14 @@
+/*
+ *
+ *   File Name: BestFit.cpp
+ *        Name: 
+ *      Course: CST 238
+ *        Term: Fall 2014
+ *  Assignment: Project 2
+ *    Abstract: BestFit Base Class
+ *
+ */
+
 #include "BestFit.h"
 
 // Allocate size number of bytes
