@@ -19,6 +19,24 @@ class MemoryFreeException : public exception {
   }
 } freeException;
 
+/*
+ *
+ *   MemoryManager Method Definitions
+ *
+ */
+// A chunk is a contiguous sequence of free blocks
+// Stores a list of contiguous chunk sizes in
+// the vector passed in
+void MemoryManager::chunkSizes(vector<unsigned int> &vcs) const {
+  // Your code here
+}
+
+// Returns the address of the first free block
+char *MemoryManager::firstFree() const {
+  // Your code here
+  return NULL;
+}
+
 // Returns the number of bytes available
 unsigned int MemoryManager::memoryAvailable() const {
   // Your code here
@@ -37,15 +55,3 @@ unsigned int MemoryManager::numFree() const {
   return 0;
 }
 
-// A chunk is a contiguous sequence of free blocks
-// Stores a list of contiguous chunk sizes in
-// the vector passed in
-void MemoryManager::chunkSizes(vector<unsigned int> &vcs) const {
-  // Your code here
-}
-
-// Returns the address of the first free block
-char *MemoryManager::firstFree() const {
-  // Your code here
-  return NULL;
-}

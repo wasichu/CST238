@@ -89,6 +89,14 @@ class MemoryManager {
     //            allocated
     virtual void free(void* ptr) = 0;           
 
+    // A chunk is a contiguous sequence of free blocks
+    // Stores a list of contiguous chunk sizes in
+    // the vector passed in
+    void chunkSizes(vector<unsigned int> &) const;
+
+    // Returns the address of the first free block
+    char *firstFree() const;
+
     // Returns the number of bytes available
     unsigned int memoryAvailable() const;
 
@@ -97,14 +105,6 @@ class MemoryManager {
 
     // Returns the number of free blocks
     unsigned int numFree() const;
-
-    // A chunk is a contiguous sequence of free blocks
-    // Stores a list of contiguous chunk sizes in
-    // the vector passed in
-    void chunkSizes(vector<unsigned int> &) const;
-
-    // Returns the address of the first free block
-    char *firstFree() const;
 };
 
 #endif
