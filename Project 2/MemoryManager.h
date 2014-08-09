@@ -8,19 +8,20 @@
  *    Abstract: MemoryManager Super Class
  *
  */
-
 #ifndef MEMORY_MANAGER_H_
 #define MEMORY_MANAGER_H_
 
 #include <cstring>
 #include <cmath>
 #include <exception>
+#include <iostream>
 #include <list>
 #include <vector>
 
 using std::exception;
 using std::list;
 using std::vector;
+using std::ostream;
 
 enum memory_unit_t { KB = 10, MB = 20, GB = 30 };
 
@@ -116,6 +117,8 @@ class MemoryManager {
 
     // Returns the number of free blocks
     unsigned int numFree() const;
+
+    friend ostream& operator<<(ostream& os, const MemoryManager& mm);
 };
 
 #endif

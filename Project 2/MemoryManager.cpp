@@ -1,5 +1,5 @@
 /*
- *   
+ *
  *   File Name: MemoryManager.cpp
  *        Name: 
  *      Course: CST 238
@@ -9,7 +9,12 @@
  *
  */
 
+#include <iostream>
+
 #include "MemoryManager.h"
+
+using std::cout;
+using std::ostream;
 
 // Utility function used by the constructor
 unsigned int bytes(size_t num, memory_unit_t unit) {
@@ -48,7 +53,7 @@ char *MemoryManager::firstFree() const {
   return NULL;
 }
 
-// Returns the number of bytes available
+// Returns the number of bytes available for allocation
 unsigned int MemoryManager::memoryAvailable() const {
   // Your code here
   return 0;
@@ -66,3 +71,11 @@ unsigned int MemoryManager::numFree() const {
   return 0;
 }
 
+ostream& operator<<(ostream& os, const MemoryManager& mm) {
+  cout << "[Free Blocks]: " 
+       << mm.numFree()
+       << " | [Allocated Blocks]: "
+       << mm.numAllocated()
+       << " | [Available Memory]: "
+       << mm.memoryAvailable();
+}
