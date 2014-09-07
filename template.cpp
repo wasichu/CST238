@@ -24,3 +24,15 @@
 // Main (if appropriate)
 
 // Function definitions (alphabetical order)
+
+/*
+ *
+ *  Abstract:
+ *
+ *  Edge Cases:
+ *
+ *  Arguments:
+ *
+ *  Return Value:
+ *
+ */
