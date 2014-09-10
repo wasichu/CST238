@@ -40,3 +40,9 @@ Source Code Descriptions
   - FirstFit.h - FirstFit base class header file
 
   - FirstFit.cpp - FirstFit base class .cpp file
+
+- RandomNumbers Folder
+
+  - rand_doubles.cpp - Example code for generating random doubles
+
+  - rand_ints.cpp - Example code for generating random ints
