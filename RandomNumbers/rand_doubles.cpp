@@ -10,7 +10,8 @@ int main() {
   double upper_bound = numeric_limits<double>::max();
 
   uniform_real_distribution<double> unid(lower_bound, upper_bound);
-  default_random_engine dre;
+  random_device rd;
+  default_random_engine dre(rd());
 
   cout << "5 random doubles:\n";
   cout << fixed << showpoint << setprecision(2);
