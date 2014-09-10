@@ -17,7 +17,7 @@ int main() {
   }
   cout << endl;
 
-  cout << "5 random ints b/w 0 and 10:\n";
+  cout << "5 random ints in the range [0, 10):\n";
   for (int i = 0; i < 5; i++) {
     cout << int_gen() % 10 << "\n";
   }
