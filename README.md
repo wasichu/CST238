@@ -27,6 +27,10 @@ Source Code Descriptions
 - template.h: Contains a skeleton .h file with the elements required
               by the course style guide
 
+- Lab 5 Folder
+  
+  - StringUtils.h - StringUtils class interface with method stubs
+
 - Project 2 Folder
   
   - MemoryManager.h - MemoryManager super class header file
