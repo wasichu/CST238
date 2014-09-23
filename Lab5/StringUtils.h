@@ -59,7 +59,8 @@ class StringUtils {
     void set(string & str);
 
     // Return a copy of the string s with leading and trailing
-    // whitespace removed
+    // whitespace removed, where whitespace consists of spaces,
+    // tabs, and newlines.
     string strip();
 
     // Return a copy of s coverted to uppercase
