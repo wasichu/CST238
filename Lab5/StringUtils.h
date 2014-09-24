@@ -20,37 +20,37 @@ class StringUtils {
     // Return a copy of s where all tab characters
     // are expanded using spaces, i.e., ' '
     // Assume tabs equal 4 spaces.
-    string expandtabs();
+    string expandTabs();
 
     // Return true if all characters in s are alphanumeric
     // and there is at least one character in s, false
     // otherwise
-    bool isalnum();
+    bool isAlnum();
 
     // Return true if all characters in s are alphabetic
     // and there is at least one character in S, false
     // otherwise
-    bool isalpha();
+    bool isAlpha();
 
     // Return true if all characters in s are digits
     // and there is at least one character in s, false
     // otherwise
-    bool isdigit();
+    bool isDigit();
 
     // Return true if all alphabetic characters in s are lowercase
     // and there is at least one alphabetic character in s, false
     // otherwise
-    bool islower();
+    bool isLower();
 
     // Return true if all characters in s are whitespace (spaces,
     // tabs, or newlines) and there is at least one character in
     // s, false otherwise
-    bool isspace();
+    bool isSpace();
 
     // Return true if all alphabetic characters in s are uppercase
     // and there is at least one alphabetic character in s, false
     // otherwise
-    bool isupper();
+    bool isUpper();
 
     // Return a copy of s converted to lowercase
     string lower();
