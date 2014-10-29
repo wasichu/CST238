@@ -58,6 +58,8 @@ class MemoryManager {
       // Check for the default argument
       if (!total_bytes)
         MEMORY_SIZE = bytes(16, MB);
+      else
+        MEMORY_SIZE = total_bytes;
 
       // Allocate memory and zero it out
       memory = new char[MEMORY_SIZE];
