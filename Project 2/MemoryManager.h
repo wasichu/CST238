@@ -45,8 +45,7 @@ class MemoryManager {
       // Can construct without arguments
       // Or with start and end pointers
       FreeBlock() {}
-      FreeBlock(char *s, char *e) : start(s), end(e) { 
-      }
+      FreeBlock(char *s, char *e) : start(s), end(e) {}
     };
 
     // Store a linked list of FreeBlocks
