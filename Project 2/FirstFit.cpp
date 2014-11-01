@@ -21,5 +21,6 @@
 //    Errors: requested size is larger
 //            than the greatest chunk
 void *FirstFit::allocate(size_t size) {
-
+  // Your code here
+  return NULL;
 }
