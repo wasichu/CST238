@@ -9,13 +9,18 @@
  *
  */
 
+#include <cmath>      // pow
+#include <cstring>    // memset
 #include <exception>
 #include <iostream>
+#include <vector>
 
 #include "MemoryManager.h"
 
+using std::exception;
 using std::cout;
 using std::ostream;
+using std::vector;
 
 // Utility function used by the constructor
 unsigned int bytes(size_t num, memory_unit_t unit) {
@@ -41,6 +46,28 @@ class MemoryFreeException : public exception {
  *   MemoryManager Method Definitions
  *
  */
+// Constructor: initializes the freeList
+MemoryManager::MemoryManager(size_t total_bytes, size_t block_size) {
+  // Check for the default argument
+  if (!total_bytes)
+    MEMORY_SIZE = bytes(16, MB);
+  else
+    MEMORY_SIZE = total_bytes;
+
+  // Allocate memory and zero it out
+  memory = new byte[MEMORY_SIZE];
+  memset(memory, 0, MEMORY_SIZE);
+
+  // Store the block size
+  BLOCK_SIZE = block_size;
+
+  // Add all FreeBlocks to the freeList
+  for (int i = 0; i < MEMORY_SIZE; i += BLOCK_SIZE) {
+    freeList.push_back(FreeBlock(memory + i, 
+                                 memory + i + BLOCK_SIZE));
+  }
+}
+
 // A chunk is a contiguous sequence of free blocks
 // Stores a list of contiguous chunk sizes in
 // the vector passed in
@@ -55,29 +82,51 @@ byte *MemoryManager::firstFreeBlock() const {
   return NULL;
 }
 
-// Returns the number of bytes available for allocation
-size_t MemoryManager::memoryAvailable() const {
+// Free previously allocated memory
+//
+// Invariant: freed memory must be zero'd out
+//
+//    Errors: trying to free memory not currently
+//            allocated
+//            trying to free memory not in the range
+//            [memory start, memory start + MEMORY_SIZE)
+void MemoryManager::free(void* ptr) {
+  // Your code here
+}
+    
+// Returns the size in bytes of the largest chunk available
+// A chunk is defined as >= 2 contiguous blocks
+// Return 0 if only single blocks are available
+size_t MemoryManager::largestChunkAvailable() const {
   // Your code here
   return 0;
 }
 
 // Returns the number of allocated blocks
-unsigned MemoryManager::numAllocated() const {
+unsigned MemoryManager::numAllocatedBlocks() const {
   // Your code here
   return 0;
 }
 
 // Returns the number of free blocks
-unsigned MemoryManager::numFree() const {
+unsigned MemoryManager::numFreeBlocks() const {
+  // Your code here
+  return 0;
+}
+
+// Returns in the size in bytes of the smallest chunk available
+// A chunk is defined as >= 2 contiguous blocks
+// Return 0 if only individual blocks are available
+size_t MemoryManager::smallestChunkAvailable() const {
   // Your code here
   return 0;
 }
 
 ostream& operator<<(ostream& os, const MemoryManager& mm) {
   cout << "[Free Blocks]: " 
-       << mm.numFree()
+       << mm.numFreeBlocks()
        << " | [Allocated Blocks]: "
-       << mm.numAllocated()
+       << mm.numAllocatedBlocks()
        << " | [Available Memory]: "
        << mm.memoryAvailable()
        << "\n";

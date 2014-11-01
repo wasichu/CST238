@@ -1,15 +1,15 @@
 /*
  *
- *   File Name: BestFit.cpp
+ *   File Name: CircularFit.cpp
  *        Name: 
  *      Course: CST 238
  *        Term: Fall 2014
  *  Assignment: Project 2
- *    Abstract: BestFit Base Class
+ *    Abstract: CircularFit Base Class
  *
  */
 
-#include "BestFit.h"
+#include "CircularFit.h"
 
 // Allocate size number of bytes
 // Returns a pointer to the newly
@@ -20,7 +20,7 @@
 //
 //    Errors: requested size is larger
 //            than the greatest chunk
-void *BestFit::allocate(size_t size) {
+void *CircularFit::allocate(size_t size) {
   // Your code here
   return NULL;
 }

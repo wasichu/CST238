@@ -29,16 +29,6 @@ class FirstFit : public MemoryManager {
     //    Errors: requested size is larger
     //            than the greatest chunk
     void *allocate(size_t size);    
-    
-    // Free previously allocated memory
-    //
-    // Invariant: freed memory must be zero'd out
-    //
-    //    Errors: trying to free memory not currently
-    //            allocated
-    //            trying to free memory not in the range
-    //            [memory start, memory start + MEMORY_SIZE)
-    void free(void* ptr);           
 };
 
 #endif

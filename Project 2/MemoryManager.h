@@ -11,9 +11,6 @@
 #ifndef MEMORY_MANAGER_H_
 #define MEMORY_MANAGER_H_
 
-#include <cstring>
-#include <cmath>
-#include <exception>
 #include <iostream>
 #include <list>
 #include <vector>
@@ -54,26 +51,7 @@ class MemoryManager {
 
   public:
     // Constructor: initializes the freeList
-    MemoryManager(size_t total_bytes = 0, size_t block_size = 64) {
-      // Check for the default argument
-      if (!total_bytes)
-        MEMORY_SIZE = bytes(16, MB);
-      else
-        MEMORY_SIZE = total_bytes;
-
-      // Allocate memory and zero it out
-      memory = new byte[MEMORY_SIZE];
-      memset(memory, 0, MEMORY_SIZE);
-
-      // Store the block size
-      BLOCK_SIZE = block_size;
-
-      // Add all FreeBlocks to the freeList
-      for (int i = 0; i < MEMORY_SIZE; i += BLOCK_SIZE) {
-        freeList.push_back(FreeBlock(memory + i, 
-                                     memory + i + BLOCK_SIZE));
-      }
-    }
+    MemoryManager(size_t total_bytes = 0, size_t block_size = 64); 
 
     // Destructor
     ~MemoryManager() { delete [] memory; }
@@ -103,7 +81,7 @@ class MemoryManager {
     //            allocated
     //            trying to free memory not in the range
     //            [memory start, memory start + MEMORY_SIZE)
-    virtual void free(void* ptr) = 0;           
+    void free(void* ptr);
 
     // A chunk is a contiguous sequence of free blocks
     // Stores a list of contiguous chunk sizes in
@@ -114,14 +92,24 @@ class MemoryManager {
     // Returns the address of the first free block
     byte *firstFreeBlock() const;
 
+    // Returns the size in bytes of the largest chunk available
+    // A chunk is defined as >= 2 contiguous blocks
+    // Return 0 if only single blocks are available
+    size_t largestChunkAvailable() const;
+
     // Returns the number of bytes available for allocation
-    size_t memoryAvailable() const;
+    size_t memoryAvailable() const { return MEMORY_SIZE; }
 
     // Returns the number of allocated blocks
-    unsigned numAllocated() const;
+    unsigned numAllocatedBlocks() const;
 
     // Returns the number of free blocks
-    unsigned numFree() const;
+    unsigned numFreeBlocks() const;
+
+    // Returns in the size in bytes of the smallest chunk available
+    // A chunk is defined as >= 2 contiguous blocks
+    // Return 0 if only individual blocks are available
+    size_t smallestChunkAvailable() const;
 
     friend ostream& operator<<(ostream& os, const MemoryManager& mm);
 };

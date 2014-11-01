@@ -23,13 +23,3 @@
 void *FirstFit::allocate(size_t size) {
 
 }
-
-// Free previously allocated memory
-//
-// Invariant: freed memory must be zero'd out
-//
-//    Errors: trying to free memory not currently
-//            allocated
-void FirstFit::free(void* ptr) {
-
-}
