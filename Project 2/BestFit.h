@@ -36,6 +36,8 @@ class BestFit : public MemoryManager {
     //
     //    Errors: trying to free memory not currently
     //            allocated
+    //            trying to free memory not in the range
+    //            [memory start, memory start + MEMORY_SIZE)
     void free(void* ptr);           
 };
 

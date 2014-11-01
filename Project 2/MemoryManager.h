@@ -23,32 +23,33 @@ using std::list;
 using std::vector;
 using std::ostream;
 
+typedef unsigned char byte;
 enum memory_unit_t { KB = 10, MB = 20, GB = 30 };
 
 unsigned int bytes(size_t, memory_unit_t);
 
 class MemoryManager {
   protected:
+    byte *memory; // Pointer to the start of memory
     size_t MEMORY_SIZE;
     size_t BLOCK_SIZE;
-    char *memory;
 
     // A FreeBlock has its start and
     // end address along with a pointer
     // to the next FreeBlock available
     struct FreeBlock {
       // Invariant: (end - start + 1) % BLOCK_SIZE == 0
-      char *start;
-      char *end;
+      byte *start;
+      byte *end;
       FreeBlock *next;
 
       // Can construct without arguments
       // Or with start and end pointers
       FreeBlock() {}
-      FreeBlock(char *s, char *e) : start(s), end(e) {}
+      FreeBlock(byte *s, byte *e) : start(s), end(e) {}
     };
 
-    // Store a linked list of FreeBlocks
+    // Store a linked list of FreeBlock structs
     list<FreeBlock> freeList;
 
   public:
@@ -61,7 +62,7 @@ class MemoryManager {
         MEMORY_SIZE = total_bytes;
 
       // Allocate memory and zero it out
-      memory = new char[MEMORY_SIZE];
+      memory = new byte[MEMORY_SIZE];
       memset(memory, 0, MEMORY_SIZE);
 
       // Store the block size
@@ -100,24 +101,27 @@ class MemoryManager {
     //
     //    Errors: trying to free memory not currently
     //            allocated
+    //            trying to free memory not in the range
+    //            [memory start, memory start + MEMORY_SIZE)
     virtual void free(void* ptr) = 0;           
 
     // A chunk is a contiguous sequence of free blocks
     // Stores a list of contiguous chunk sizes in
     // the vector passed in
-    void chunkSizes(vector<unsigned int> &) const;
+    // You can assume the vector passed in is empty
+    void chunkSizes(vector<size_t> &) const;
 
     // Returns the address of the first free block
-    char *firstFree() const;
+    byte *firstFreeBlock() const;
 
-    // Returns the number of bytes available
-    unsigned int memoryAvailable() const;
+    // Returns the number of bytes available for allocation
+    size_t memoryAvailable() const;
 
     // Returns the number of allocated blocks
-    unsigned int numAllocated() const;
+    unsigned numAllocated() const;
 
     // Returns the number of free blocks
-    unsigned int numFree() const;
+    unsigned numFree() const;
 
     friend ostream& operator<<(ostream& os, const MemoryManager& mm);
 };

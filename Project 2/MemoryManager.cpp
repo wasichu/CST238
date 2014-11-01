@@ -9,6 +9,7 @@
  *
  */
 
+#include <exception>
 #include <iostream>
 
 #include "MemoryManager.h"
@@ -43,30 +44,31 @@ class MemoryFreeException : public exception {
 // A chunk is a contiguous sequence of free blocks
 // Stores a list of contiguous chunk sizes in
 // the vector passed in
-void MemoryManager::chunkSizes(vector<unsigned int> &vcs) const {
+// You can assume the vector passed in is empty
+void MemoryManager::chunkSizes(vector<size_t> &vcs) const {
   // Your code here
 }
 
 // Returns the address of the first free block
-char *MemoryManager::firstFree() const {
+byte *MemoryManager::firstFreeBlock() const {
   // Your code here
   return NULL;
 }
 
 // Returns the number of bytes available for allocation
-unsigned int MemoryManager::memoryAvailable() const {
+size_t MemoryManager::memoryAvailable() const {
   // Your code here
   return 0;
 }
 
 // Returns the number of allocated blocks
-unsigned int MemoryManager::numAllocated() const {
+unsigned MemoryManager::numAllocated() const {
   // Your code here
   return 0;
 }
 
 // Returns the number of free blocks
-unsigned int MemoryManager::numFree() const {
+unsigned MemoryManager::numFree() const {
   // Your code here
   return 0;
 }
@@ -77,5 +79,6 @@ ostream& operator<<(ostream& os, const MemoryManager& mm) {
        << " | [Allocated Blocks]: "
        << mm.numAllocated()
        << " | [Available Memory]: "
-       << mm.memoryAvailable();
+       << mm.memoryAvailable()
+       << "\n";
 }
