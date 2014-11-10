@@ -36,6 +36,7 @@ class MemoryManager {
     // to the next FreeBlock available
     struct FreeBlock {
       // Invariant: (end - start + 1) % BLOCK_SIZE == 0
+      // The range is: [start, end] (inclusive of both end points)
       byte *start;
       byte *end;
       FreeBlock *next;

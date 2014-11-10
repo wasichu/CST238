@@ -49,10 +49,16 @@ class MemoryFreeException : public exception {
 // Constructor: initializes the freeList
 MemoryManager::MemoryManager(size_t total_bytes, size_t block_size) {
   // Check for the default argument
-  if (!total_bytes)
+  if (!total_bytes) {
+    block_size = 64;
     MEMORY_SIZE = bytes(16, MB);
-  else
+  } else {
+    // Must be a multiple of the block size
+    if (total_bytes % block_size != 0) { 
+      total_bytes += (total_bytes % block_size);
+    }
     MEMORY_SIZE = total_bytes;
+  }
 
   // Allocate memory and zero it out
   memory = new byte[MEMORY_SIZE];
@@ -64,7 +70,7 @@ MemoryManager::MemoryManager(size_t total_bytes, size_t block_size) {
   // Add all FreeBlocks to the freeList
   for (int i = 0; i < MEMORY_SIZE; i += BLOCK_SIZE) {
     freeList.push_back(FreeBlock(memory + i, 
-                                 memory + i + BLOCK_SIZE));
+                                 memory + i + BLOCK_SIZE - 1));
   }
 }
 
