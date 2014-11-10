@@ -108,6 +108,12 @@ size_t MemoryManager::largestChunkAvailable() const {
   return 0;
 }
 
+// Returns the number of bytes available for allocation
+size_t MemoryManager::memoryAvailable() const {
+  // Your code here
+  return 0;
+}
+
 // Returns the number of allocated blocks
 unsigned MemoryManager::numAllocatedBlocks() const {
   // Your code here
