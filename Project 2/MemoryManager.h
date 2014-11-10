@@ -99,7 +99,7 @@ class MemoryManager {
     size_t largestChunkAvailable() const;
 
     // Returns the number of bytes available for allocation
-    size_t memoryAvailable() const { return MEMORY_SIZE; }
+    size_t memoryAvailable() const;
 
     // Returns the number of allocated blocks
     unsigned numAllocatedBlocks() const;
