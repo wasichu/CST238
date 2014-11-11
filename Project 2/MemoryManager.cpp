@@ -83,6 +83,7 @@ void MemoryManager::chunkSizes(vector<size_t> &vcs) const {
 }
 
 // Returns the address of the first free block
+// Or NULL if all of memory has been allocated
 byte *MemoryManager::firstFreeBlock() const {
   // Your code here
   return NULL;
@@ -96,7 +97,7 @@ byte *MemoryManager::firstFreeBlock() const {
 //            allocated
 //            trying to free memory not in the range
 //            [memory start, memory start + MEMORY_SIZE)
-void MemoryManager::free(void* ptr) {
+void MemoryManager::free(void *ptr) {
   // Your code here
 }
     

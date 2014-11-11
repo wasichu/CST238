@@ -82,7 +82,7 @@ class MemoryManager {
     //            allocated
     //            trying to free memory not in the range
     //            [memory start, memory start + MEMORY_SIZE)
-    void free(void* ptr);
+    void free(void *ptr);
 
     // A chunk is a contiguous sequence of free blocks
     // Stores a list of contiguous chunk sizes in
@@ -91,6 +91,7 @@ class MemoryManager {
     void chunkSizes(vector<size_t> &) const;
 
     // Returns the address of the first free block
+    // Or NULL if all of memory has been allocated
     byte *firstFreeBlock() const;
 
     // Returns the size in bytes of the largest chunk available
