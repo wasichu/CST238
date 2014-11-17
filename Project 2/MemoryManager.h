@@ -39,7 +39,6 @@ class MemoryManager {
       // The range is: [start, end] (inclusive of both end points)
       byte *start;
       byte *end;
-      FreeBlock *next;
 
       // Can construct without arguments
       // Or with start and end pointers
