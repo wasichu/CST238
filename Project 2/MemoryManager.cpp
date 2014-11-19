@@ -68,7 +68,7 @@ MemoryManager::MemoryManager(size_t total_bytes, size_t block_size) {
   BLOCK_SIZE = block_size;
 
   // Add all FreeBlocks to the freeList
-  for (int i = 0; i < MEMORY_SIZE; i += BLOCK_SIZE) {
+  for (unsigned i = 0; i < MEMORY_SIZE; i += BLOCK_SIZE) {
     freeList.push_back(FreeBlock(memory + i, 
                                  memory + i + BLOCK_SIZE - 1));
   }
@@ -136,11 +136,12 @@ size_t MemoryManager::smallestChunkAvailable() const {
 }
 
 ostream& operator<<(ostream& os, const MemoryManager& mm) {
-  cout << "[Free Blocks]: " 
-       << mm.numFreeBlocks()
-       << " | [Allocated Blocks]: "
-       << mm.numAllocatedBlocks()
-       << " | [Available Memory]: "
-       << mm.memoryAvailable()
-       << "\n";
+  os << "[Free Blocks]: " 
+      << mm.numFreeBlocks()
+      << " | [Allocated Blocks]: "
+      << mm.numAllocatedBlocks()
+      << " | [Available Memory]: "
+      << mm.memoryAvailable()
+      << "\n";
+  return os;
 }
