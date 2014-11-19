@@ -20,7 +20,7 @@ using std::exception;
 using std::list;
 using std::vector;
 using std::ostream;
-using std::utility;
+using std::pair;
 
 typedef unsigned char byte;
 enum memory_unit_t { KB = 10, MB = 20, GB = 30 };

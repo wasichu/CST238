@@ -82,6 +82,13 @@ void MemoryManager::chunkSizes(vector<size_t> &vcs) const {
   // Your code here
 }
 
+// Stores starting and ending addresses
+// of all free chunks in memory as pairs
+void MemoryManager::chunkSizes(vector<pair<const byte *, 
+                                const byte *> > &) const {
+  // Your code here
+}
+
 // Returns the address of the first free block
 // Or NULL if all of memory has been allocated
 byte *MemoryManager::firstFreeBlock() const {
