@@ -67,9 +67,9 @@ class MemoryManager {
     /*
      *
      *       PUBLIC INTERFACE
-     *  Must override in base class
      *
      */
+    // Must override in base class
     // Allocate size number of bytes
     // Returns a pointer to the newly
     // allocated chunk of memory
@@ -120,6 +120,7 @@ class MemoryManager {
     // Return 0 if only individual blocks are available
     size_t smallestChunkAvailable() const;
 
+    // Allows for the printing of a MemoryManager object
     friend ostream& operator<<(ostream& os, const MemoryManager& mm);
 };
 
