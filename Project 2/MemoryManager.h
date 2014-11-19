@@ -47,7 +47,15 @@ class MemoryManager {
     };
 
     // Store a linked list of FreeBlock structs
+    // Invariant: all FreeBlocks are sorted in
+    // ascending order based on start address
     list<FreeBlock> freeList;
+
+    // The FreeList must maintain sorted order
+    bool blockCmp(const FreeBlock & lhs, const FreeBlock & rhs) {
+      return lhs.start < rhs.start;
+    }
+    void sortFreeList() { freeList.sort(blockCmp); }
 
   public:
     // Constructor: initializes the freeList
