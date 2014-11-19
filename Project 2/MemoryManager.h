@@ -14,11 +14,13 @@
 #include <iostream>
 #include <list>
 #include <vector>
+#include <utility>
 
 using std::exception;
 using std::list;
 using std::vector;
 using std::ostream;
+using std::utility;
 
 typedef unsigned char byte;
 enum memory_unit_t { KB = 10, MB = 20, GB = 30 };
@@ -92,10 +94,15 @@ class MemoryManager {
     void free(void *ptr);
 
     // A chunk is a contiguous sequence of free blocks
-    // Stores a list of contiguous chunk sizes in
-    // the vector passed in
+    // Stores all contiguous chunk sizes in
+    // the vector passed in as size_t's
+    // All chunks must consist of free memory
     // You can assume the vector passed in is empty
     void chunkSizes(vector<size_t> &) const;
+
+    // Stores starting and ending addresses
+    // of all free chunks in memory as pairs
+    void chunkSizes(vector<pair<const byte *, const byte *> > &) const;
 
     // Returns the address of the first free block
     // Or NULL if all of memory has been allocated
