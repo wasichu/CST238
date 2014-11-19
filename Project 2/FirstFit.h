@@ -17,7 +17,8 @@
 class FirstFit : public MemoryManager {
   public:
     // Constructor
-    FirstFit() : MemoryManager() { }
+    FirstFit(size_t total_bytes = 0, size_t block_size = 64) : 
+                          MemoryManager(total_bytes, block_size) { }
 
     // Allocate size number of bytes
     // Returns a pointer to the newly

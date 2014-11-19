@@ -17,7 +17,8 @@
 class BestFit : public MemoryManager {
   public:
     // Constructor
-    BestFit() : MemoryManager() { }
+    BestFit(size_t total_bytes = 0, size_t block_size = 64) : 
+                      MemoryManager(total_bytes, block_size) { }
 
     // Allocate size number of bytes
     // Returns a pointer to the newly
