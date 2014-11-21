@@ -54,10 +54,10 @@ class MemoryManager {
     list<FreeBlock> freeList;
 
     // The FreeList must maintain sorted order
-    bool blockCmp(const FreeBlock & lhs, const FreeBlock & rhs) {
+    static bool blockCmp(const FreeBlock & lhs, const FreeBlock & rhs) {
       return lhs.start < rhs.start;
     }
-    void sortFreeList() { freeList.sort(blockCmp); }
+    void sortFreeList() { freeList.sort(MemoryManager::blockCmp); }
 
   public:
     // Constructor: initializes the freeList
