@@ -11,6 +11,7 @@
 #ifndef MEMORY_MANAGER_H_
 #define MEMORY_MANAGER_H_
 
+#include <exception>
 #include <iostream>
 #include <list>
 #include <vector>

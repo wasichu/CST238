@@ -11,7 +11,6 @@
 
 #include <cmath>      // pow
 #include <cstring>    // memset
-#include <exception>
 #include <iostream>
 #include <vector>
 
