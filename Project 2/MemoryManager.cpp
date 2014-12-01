@@ -27,20 +27,6 @@ unsigned int bytes(size_t num, memory_unit_t unit) {
   return (unsigned int) pow(2.0, (double) unit);
 }
 
-// Exceptions which must be thrown by allocate()
-// and free() when an exception occurs in either
-class MemoryAllocationException : public exception {
-  virtual const char* what() const throw() {
-    return "Not enough memory for allocation";
-  }
-} allocationException;
-
-class MemoryFreeException : public exception {
-  virtual const char* what() const throw() {
-    return "Cannot free unallocated memory";
-  }
-} freeException;
-
 /*
  *
  *   MemoryManager Method Definitions
@@ -85,7 +71,7 @@ void MemoryManager::chunkSizes(vector<size_t> &vcs) const {
 // Stores starting and ending addresses
 // of all free chunks in memory as pairs
 void MemoryManager::chunkSizes(vector<pair<const byte *, 
-                                const byte *> > &) const {
+                                const byte *> > &vcs) const {
   // Your code here
 }
 

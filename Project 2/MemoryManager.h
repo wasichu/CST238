@@ -132,4 +132,18 @@ class MemoryManager {
     friend ostream& operator<<(ostream& os, const MemoryManager& mm);
 };
 
+// Exceptions which must be thrown by allocate()
+// and free() when an exception occurs in either
+class MemoryAllocationException : public exception {
+  virtual const char* what() const throw() {
+    return "Not enough memory for allocation";
+  }
+} const allocationException;
+
+class MemoryFreeException : public exception {
+  virtual const char* what() const throw() {
+    return "Cannot free unallocated memory";
+  }
+} const freeException;
+
 #endif
