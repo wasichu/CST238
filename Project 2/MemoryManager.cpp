@@ -11,13 +11,11 @@
 
 #include <cmath>      // pow
 #include <cstring>    // memset
-#include <exception>
 #include <iostream>
 #include <vector>
 
 #include "MemoryManager.h"
 
-using std::exception;
 using std::cout;
 using std::ostream;
 using std::vector;
