@@ -1,6 +1,5 @@
 #include <cassert>
 #include <iostream>
-#include <vector>
 
 #include "BinTree.h"
 
