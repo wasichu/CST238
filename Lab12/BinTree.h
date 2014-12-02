@@ -1,7 +1,7 @@
 #pragma once
 
-#include <cassert>
-#include <cstddef>
+#include <cassert>    // assert
+#include <cstddef>    // NULL 
 
 template <typename T>
 class BTNode {
