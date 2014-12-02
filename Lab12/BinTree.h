@@ -53,6 +53,9 @@ bool BinaryTree<T>::isBSTHelper(BTNode<T> *r) const {
 
 template <typename T>
 void BinaryTree<T>::max(T &m) const {
+  assert(!empty());
+
+  m = root->data;
   maxHelper(root, m);
 }
 
@@ -67,6 +70,9 @@ void BinaryTree<T>::maxHelper(BTNode<T> *r, T &m) const {
 
 template <typename T>
 void BinaryTree<T>::min(T &m) const {
+  assert(!empty());
+
+  m = root->data;
   minHelper(root, m);
 }
 
